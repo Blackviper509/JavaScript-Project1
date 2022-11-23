@@ -1,0 +1,64 @@
+<div class="container">
+    <hgroup>
+    <h1>Hot or Cold</h1> 
+      <h2>A Javascript Game</h2>
+    </hgroup>
+    <section class="game-container">
+      <form action="" method="post" id="guess">
+      <input type="text" name="number" placeholder="Guess a Number">
+      <input id="submit" type="submit" value="Guess">
+      <p class='hint'></p>
+      </form>
+    </section>
+    
+  </div>
+<script>
+var rando = Math.floor((Math.random() * 10)) + 1;
+guess= parseInt(guess);
+var tries = 5;
+
+
+function calc() {
+  if (1 < guess && guess < 10) {
+  } else if( guess > 10 ){
+    alert("the number is over 10");
+    end;
+  } else if (guess < 1 ){
+     alert("The number is under 1");
+    end;
+  }
+  if( guess == rando) {
+    alert('You Guessed the number!');
+    end;
+  }
+    if(rando > guess)
+    {
+        alert('Hotter');
+    }
+
+    if(rando < guess)
+    {
+        alert('Lower');
+    }
+}
+
+
+function event_handle(evt) {
+  evt.preventDefault();
+  evt.stopPropagation();
+  if (tries >= 0) {
+    var guess = prompt('Guess a number. You start with ' + tries + ' tries');
+    while(tries > 0) {
+		  calc();
+      tries --;
+      var guess = prompt('Guess a New number. You have ' + tries +' tries left');
+    }
+  } else {
+      alert('You are out of tries');
+  end;
+  } //endif
+}//end function
+
+var form = document.querySelector('#guess');
+form.addEventListener('submit', event_handle );
+</script>
